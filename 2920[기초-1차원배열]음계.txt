@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+
+int arr[8];
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	for (int i = 0; i < 8; i++) {
+		cin >> arr[i];
+		
+	}
+	
+	int ascnt=0;
+	int descnt = 0;
+	for (int i = 0; i < 4; i++) {
+		if (arr[i]==i+1 && arr[i] + arr[7 - i] == 9) { 
+			ascnt++;
+		}
+		else if (arr[7 - i] == i + 1 && arr[i] + arr[7 - i] == 9) {
+			descnt++;
+		}
+	}
+
+	if (ascnt==4)
+		cout << "ascending";
+	else if(descnt==4)
+		cout << "descending";
+	else
+		cout << "mixed";
+}
