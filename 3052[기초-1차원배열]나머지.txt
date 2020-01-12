@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+
+int arr[8];
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	int resultArr[42];
+	int result,cnt=0;
+	for (int i = 0; i < 42; i++) {
+		resultArr[i] = 0;
+	}
+	int arr[10] = { 0,0,0,0,0,0,0,0,0,0 };
+	for (int i = 0; i < 10; i++) {
+		cin >> arr[i];
+		++resultArr[arr[i] % 42];
+	}
+	for (int i = 0; i < 42; i++) {
+		if (resultArr[i] != 0) {
+			cnt++;
+		}
+	}
+
+	cout << cnt;
+	
+
+}
