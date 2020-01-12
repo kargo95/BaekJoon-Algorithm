@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+
+int arr[8];
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	double score[1000];
+	int n;
+	double maxx = -1,sum = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> score[i];
+		if (score[i] > maxx)
+			maxx = score[i];
+	}
+	for (int i = 0; i < n; i++) {
+		score[i] = score[i] / maxx * 100;
+		sum += score[i];
+	}
+
+	cout << (double)sum / (double)n;
+	
+
+}
