@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+
+int arr[8];
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	int studentScore[1000];
+	int classN,stuN;
+	int sum = 0;
+	int average = 0;
+	int overAvgCnt = 0;
+
+	cout << fixed;
+	cout.precision(3);
+
+	double ratio;
+	cin >> classN;
+	for (int i = 0; i < classN; i++) {
+		cin >> stuN;
+		for (int j = 0; j < stuN; j++) {
+			cin >> studentScore[j];
+			sum += studentScore[j];
+		}
+		average = sum / stuN;
+		for (int j = 0; j < stuN; j++) {
+			if (average < studentScore[j]) {
+				overAvgCnt++;
+			}
+		}
+		ratio = (double)overAvgCnt / (double)stuN * 100;
+
+		cout << ratio << "%\n";
+		sum = 0;
+		average = 0;
+		overAvgCnt = 0;
+	}
+	
+	
+
+}
