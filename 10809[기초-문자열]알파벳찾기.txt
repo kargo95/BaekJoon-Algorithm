@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	int arr[26];
+	for (int i = 0; i < 26; i++) {
+		arr[i] = -1;
+	}
+
+	char input[100];
+	cin >> input;
+
+	for (int i = 0; i < strlen(input); i++) {
+		for (int j = 0; j < 26; j++) {
+			if ((int)input[i] == j + 97 && arr[j]==-1) {
+				arr[j] = i;
+				break;
+			}			
+		}
+	}
+
+	for (int i = 0; i < 26; i++) {
+		cout << arr[i]<<" ";
+	}
+	
+
+}
+
