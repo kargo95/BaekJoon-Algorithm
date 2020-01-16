@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	string cro[] = { "c=","c-","dz=","d-","lj","nj","s=","z=" };
+	string input;
+	int i,j,a;
+	int cnt = 0;
+	cin >> input;
+	
+	int len = input.size();
+	for (i = 0; i < 8; i++) {
+		for (j = 0; j < len; j++) {
+			a = input.find(cro[i]);
+			if (a != -1) {
+				input.replace(a, cro[i].size(), "0");
+				len = len - cro[i].size() + 1;
+			}
+		}
+	}
+
+	len = input.size();
+	for (i = 0; i < len; i++) {
+		if (input[i] != 0) {
+			cnt++;
+		}
+	}
+	cout << cnt;
+	
+	return 0;
+
+}

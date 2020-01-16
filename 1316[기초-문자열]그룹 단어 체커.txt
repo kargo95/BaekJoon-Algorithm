@@ -1,0 +1,37 @@
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	int lineNum, i, j;
+	bool isGroup=true;
+	string input[100];
+	string checker = "";
+	cin >> lineNum;
+	int cnt = lineNum;
+	for (i = 0; i < lineNum; i++) {
+		cin >> input[i];
+		for (j = 0; j < input[i].size(); j++) {
+			if (checker.find(input[i][j]) == -1)
+				checker.push_back(input[i][j]);
+			else {
+				if (input[i][j - 1]!=input[i][j]&&isGroup) {
+					cnt--;
+					isGroup = false;
+				}
+			}
+		}
+		isGroup = true;
+		checker = "";
+	}
+	cout << cnt << endl;
+
+	return 0;
+
+}
+
