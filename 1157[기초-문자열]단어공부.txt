@@ -1,0 +1,45 @@
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+	int alpha[26] = {0};
+	char input[1000000];
+	int max = -1;
+	int maxAlpha;
+	bool isAgain=false;
+	
+
+	cin >> input;
+	int len = strlen(input);
+	for (int i = 0; i < len; i++) {
+		input[i] = toupper(input[i]);
+		++alpha[((int)input[i]) - 65];
+	}
+
+	for (int i = 0; i < 26; i++) {
+		if (alpha[i] > max) {
+			max = alpha[i];
+			maxAlpha = i;
+			isAgain = false;
+		}
+		else if (alpha[i] == max) {
+			isAgain = true;
+		}
+	}
+
+	if (isAgain) cout << "?";
+	else cout << (char)(maxAlpha+65);
+	
+
+	
+	
+
+	return 0;
+
+}
+
