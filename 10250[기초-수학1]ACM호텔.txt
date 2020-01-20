@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	int n,i;
+	float H, W, N;
+	int room[100];
+	int temp;
+	cin >> n;
+	for (i = 0; i < n; i++) {
+		cin >> H >> W >> N;
+		temp = ((int)N % (int)H);
+		if (temp == 0)
+			temp = H;
+		room[i] = ((ceil(N / H))) + (temp * 100);
+	}
+	for (i = 0; i < n; i++) {
+		cout << room[i] << "\n";
+	}
+}
+
