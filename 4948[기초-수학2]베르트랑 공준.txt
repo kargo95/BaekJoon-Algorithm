@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+vector<bool> check;
+int M,N;
+int main(){
+	int i,j;
+	cin >> M >> N;
+	
+	check.resize(N+1);
+	check[1] = true;
+	int len = sqrt(N);
+	for(i=2;i<len;i++){
+		if(!check[i]){
+			for(j=i+i;j<=N;j+=i){
+				check[j] = true;
+			}
+		}
+	}
+	for(i=M;i<=N;i++){
+		if(!check[i]){
+			cout<< i <<'\n';
+		}
+	}
+	
+	return 0;
+	
+}
