@@ -1,0 +1,27 @@
+def factorial(a):
+    return a*factorial(a-1) if a > 1 else 1
+
+a= int(input())
+print(factorial(a))
+
+
+#include <iostream>
+
+using namespace std;
+
+int factorial(int n){
+	if(n>1){
+		return factorial(n-1)*n;
+	}
+	else {
+		return 1;	
+	}	
+}
+
+int main(){
+	int input;
+	cin >> input;
+	cout<<factorial(input);
+	return 0;
+}
+

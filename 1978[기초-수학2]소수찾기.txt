@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+	
+	int n;
+	int cnt,input;
+	cin>>n;
+	cnt = n;
+	for(int i = 0;i<n;i++){
+		cin >> input;
+		if(input!=1){
+			for(int j=2;j<input;j++){
+				if(input%j==0){
+					cnt--;
+					break;
+				}
+			}
+		}else{
+			cnt--;
+		}
+	}
+	cout<< cnt;
+	
+	return 0;
+	
+}
