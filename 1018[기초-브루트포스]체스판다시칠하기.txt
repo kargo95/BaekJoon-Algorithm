@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+int M,N;
+char board[50][50];
+int main(){
+	cin >>M>>N;
+	for(int i=0;i<M;i++){
+		for(int j=0;j<N;j++){
+			cin>>board[i][j];
+		}
+	}
+	char startW = 'W';
+	char startB = 'B';
+	int startWcnt=0;
+	int startBcnt=0;
+	int mins = 100;
+
+	for(int i=0;i<M-8+1;i++){
+		for(int j = 0;j<N-8+1;j++){
+			for(int k=0;k<8;k++){
+				for(int l=0;l<8;l++){
+					if(board[i+k][j+l]!=startW){
+						startWcnt++;
+					}
+					if(board[i+k][j+l]!=startB){
+						startBcnt++;
+					}
+					if(l==7) break;
+					if(startW=='W'){
+						startW='B';
+						startB='W';
+					}else{
+						startW='W';
+						startB='B';
+					}
+				}	
+			}
+			if(mins>startWcnt) mins=startWcnt;
+			if(mins>startBcnt) mins=startBcnt;				
+			startWcnt=0;
+			startBcnt=0;
+			startW = 'W';
+			startB = 'B';
+		}
+	}
+	cout<<mins;
+}
