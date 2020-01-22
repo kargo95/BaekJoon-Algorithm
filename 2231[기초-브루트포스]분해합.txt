@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int n ,mins=1000001;
+
+
+int main(){
+	int sum;
+	cin >> n;
+	for( int i=1;i<=n;i++){
+		sum=i;
+		int a = i;
+		while(1){
+			if(a==0)break;
+			sum=sum+(a%10);
+			a=a/10;
+		}
+		if(i<mins&&sum==n){
+			mins=i;
+		}
+	}
+	if(mins== 1000001) cout<<0;
+	else cout<<mins;
+}
