@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int n, target,smax=-0;
+vector<int> cards;
+
+int main(){
+	cin >> n >> target;
+	int card;
+	for(int i=0;i<n;i++){
+		cin>> card;
+		cards.push_back(card);
+	}
+	int cardSize = cards.size();
+	int sum;
+	for(int i=0;i<cardSize-2;i++){
+		for(int j=i+1;j<cardSize-1;j++){
+			for(int k=j+1;k<cardSize;k++){
+				sum = cards[i]+cards[j]+cards[k];
+				if(sum<=target&&sum>smax){
+					smax = sum;
+				}
+			}
+			
+		}
+	}
+	cout<<smax;
+}
