@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <functional>
+using namespace std;
+vector<int> v;
+int input;
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	cin >> input;
+	while (1) {
+		if (input == 0) break;
+		v.push_back(input % 10);
+		input = input / 10;
+	}
+	sort(v.begin(), v.end(),greater<int>());
+	for (int i = 0; i < v.size(); i++) {
+		cout << v[i];
+	}
+}
+
