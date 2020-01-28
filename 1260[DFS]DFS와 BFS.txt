@@ -1,0 +1,58 @@
+#include <iostream>
+#include <queue>
+#include <cstring>
+using namespace std;
+const int MAX = 1000 + 1;
+int N,M,V;
+bool adjacent[MAX][MAX];
+bool visited[MAX];
+queue<int> q;
+
+void DFS(int idx){
+	cout <<idx <<" ";
+	for(int i=1;i<=N;i++){
+		if(adjacent[idx][i] && !visited[i]){
+			visited[i]=true;
+			DFS(i);
+		}
+	}
+}
+
+void BFS(int idx){
+	q.push(idx);
+	visited[idx] = true;
+	while(!q.empty()){
+		idx = q.front();
+		q.pop();
+		cout << idx <<" ";
+		for(int i=1;i<=N;i++){
+			if(adjacent[idx][i] && !visited[i]){
+				visited[i] = 1;
+				q.push(i);
+			}
+		}
+	}
+}
+
+int main(){
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	
+	cin >> N >> M >>V; //정점개수N, 간선개수M. 시자정점번호V
+	int from ,to;
+	for(int i=0;i<M;i++){
+		cin >> from >> to;
+		adjacent[from][to] = true;
+		adjacent[to][from] = true;
+	}
+	visited[V] = true;
+	DFS(V);
+	cout<<"\n";
+	
+	memset(visited,false,sizeof(visited));
+	BFS(V);
+	
+	return 0;
+
+	 
+}
